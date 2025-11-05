@@ -221,7 +221,7 @@ section {
 /* Sekcia Tím */
 #team {
     padding-top: 100px;
-    padding-bottom: 0; /* Odstránime spodný padding, pretože ho majú wrappery */
+    padding-bottom: 0;
 }
 .team-header-container {
      padding-bottom: 40px;
@@ -234,11 +234,11 @@ section {
 }
 
 /* Striedanie pozadia pre každého člena */
-.team-member-wrapper:nth-child(odd) {
+.team-member-wrapper:nth-of-type(odd) {
     background-color: var(--background-white);
 }
-.team-member-wrapper:nth-child(even) {
-    background-color: var(--background-light);
+.team-member-wrapper:nth-of-type(even) {
+    background-color: var(--primary-blue);
 }
 
 .team-member-profile {
@@ -247,7 +247,6 @@ section {
     gap: 60px;
 }
 
-/* Striedanie poradia obrázok/text */
 .team-member-wrapper:nth-of-type(even) .team-member-profile {
     flex-direction: row-reverse;
 }
@@ -261,14 +260,26 @@ section {
 .team-member-photo img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Zobrazí celý obrázok, zabráni useknutiu */
-    background-color: #f0f0f0; /* Jemné pozadie pre prípadné prázdne miesto */
+    object-fit: contain;
+    background-color: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .team-member-details {
     flex-grow: 1;
+}
+
+/* Farby textu na modrom pozadí v sekcii tímu */
+.team-member-wrapper:nth-of-type(even) h3 {
+    color: var(--light-text);
+}
+.team-member-wrapper:nth-of-type(even) h4 {
+    color: var(--accent-yellow);
+}
+.team-member-wrapper:nth-of-type(even) p {
+    color: var(--light-text);
+    opacity: 0.9;
 }
 
 /* Kontakt */
@@ -279,18 +290,18 @@ section {
 
 #contact p {
     max-width: 550px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 30px auto;
 }
 
 .contact-details {
-    display: inline-block; /* Umožní vycentrovať blok */
-    text-align: left; /* Zarovná text v bloku doľava */
-    margin-top: 20px;
+    display: inline-block;
+    text-align: left;
+    margin-top: 10px;
 }
 
 .contact-item {
     font-size: 1.2rem;
-    margin: 0 0 15px 0 !important;
+    margin: 0 !important;
     padding: 0;
 }
 
@@ -301,8 +312,7 @@ section {
 
 /* --- Pätička --- */
 footer {
-    background: var(--primary-blue);
-    color: var(--light-text);
+    background: var(--accent-yellow);
     padding: 50px 20px;
 }
 
@@ -315,14 +325,15 @@ footer .container {
 }
 
 .footer-logos {
-    max-height: 70px; /* Zväčšené logo */
+    max-height: 70px;
     margin-bottom: 30px;
 }
 
 footer p {
     margin: 0;
     font-size: 0.9rem;
-    color: #ccc;
+    color: var(--dark-text); /* Zmenená farba textu na tmavú */
+    font-weight: 500;
 }
 
 /* --- Responzivita --- */
